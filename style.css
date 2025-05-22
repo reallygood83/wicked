@@ -259,43 +259,76 @@ main::after {
         font-size: 16px;
     }
     
+    header {
+        padding: 0.7em 0;
+        position: relative; /* sticky 대신 relative로 변경하여 모바일에서 더 많은 콘텐츠 공간 확보 */
+    }
+    
     header h1 {
-        font-size: 1.8em;
+        font-size: 1.5em;
+        margin-bottom: 0.3em;
     }
 
     #main-nav ul {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0.3em 0;
+        gap: 5px;
     }
 
     #main-nav ul li {
-        margin: 5px 0;
+        margin: 2px;
+        padding: 4px 8px;
+        font-size: 0.9em;
+    }
+    
+    #main-nav a {
+        font-size: 0.9em;
     }
 
     main {
         padding: 15px;
-        margin: 10px auto;
+        margin: 5px auto;
     }
 
     .script-section {
         padding: 15px;
+        margin-bottom: 30px;
     }
 
     .script-section h2 {
-        font-size: 1.7em;
+        font-size: 1.5em;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
     }
 
     .script-section h3 {
-        font-size: 1.4em;
+        font-size: 1.3em;
+        margin-bottom: 15px;
     }
     
     .script-section p {
         font-size: 1em;
-        line-height: 1.8;
+        line-height: 1.7;
+        padding-left: 8px;
+        margin-bottom: 12px;
+    }
+
+    .scene {
+        padding: 15px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .video-container {
+        margin: 15px 0;
     }
 
     #scrollToTopBtn {
-        padding: 12px;
-        bottom: 20px;
-        right: 20px;
+        padding: 10px;
+        bottom: 15px;
+        right: 15px;
+        font-size: 16px;
     }
 }
