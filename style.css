@@ -32,6 +32,10 @@ header h1 {
 }
 
 /* Navigation */
+#main-nav {
+    position: relative;
+}
+
 #main-nav ul {
     list-style: none;
     padding: 0;
@@ -61,6 +65,25 @@ header h1 {
     text-decoration: none;
     font-weight: bold;
     font-size: 1.1em;
+}
+
+/* 햄버거 메뉴 아이콘 */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #e2c92d;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 5px auto;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    border: 1px solid rgba(226, 201, 45, 0.3);
+}
+
+.menu-toggle:hover {
+    background-color: rgba(226, 201, 45, 0.2);
 }
 
 /* Main Content */
@@ -261,7 +284,7 @@ main::after {
     
     header {
         padding: 0.7em 0;
-        position: relative; /* sticky 대신 relative로 변경하여 모바일에서 더 많은 콘텐츠 공간 확보 */
+        position: relative;
     }
     
     header h1 {
@@ -269,22 +292,42 @@ main::after {
         margin-bottom: 0.3em;
     }
 
+    /* 햄버거 메뉴 표시 */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* 드롭다운 네비게이션 */
     #main-nav ul {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 0.3em 0;
-        gap: 5px;
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(10, 40, 30, 0.95);
+        z-index: 1000;
+        margin: 0;
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        border-radius: 0 0 10px 10px;
+        border: 1px solid rgba(226, 201, 45, 0.3);
+    }
+    
+    #main-nav ul.show {
+        display: flex;
     }
 
     #main-nav ul li {
-        margin: 2px;
-        padding: 4px 8px;
-        font-size: 0.9em;
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
     }
     
     #main-nav a {
-        font-size: 0.9em;
+        display: block;
+        padding: 8px 0;
+        font-size: 1em;
     }
 
     main {

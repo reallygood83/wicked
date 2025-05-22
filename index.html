@@ -6,12 +6,16 @@
     <title>2025 위키드 - 학교폭력(사이버폭력, 언어폭력, 가짜뉴스) 예방 캠페인극</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
         <h1>2025 위키드 - 학교폭력(사이버폭력, 언어폭력, 가짜뉴스) 예방 캠페인극</h1>
         <nav id="main-nav">
-            <ul>
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i> 메뉴
+            </button>
+            <ul id="nav-menu">
                 <li><a href="#act1">1막 1반 - 오즈의 쉬즈 학교</a></li>
                 <li><a href="#act2">2막 2반 - 기숙사방 + 교실</a></li>
                 <li><a href="#act3">3막 5반 - 기숙사 방 + 오즈도시</a></li>
@@ -420,10 +424,51 @@
         </section>
     </main>
 
+    <button id="scrollToTopBtn" title="맨 위로 이동">↑</button>
+
     <footer>
-        <p>&copy; 2025 위키드 - 학교폭력 예방 캠페인극 대본집</p>
+        <p>&copy; 2025 위키드 - 학교폭력(사이버폭력, 언어폭력, 가짜뉴스) 예방 캠페인극</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // 스크롤 맨 위로 버튼
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        
+        window.addEventListener("scroll", function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        });
+        
+        scrollToTopBtn.addEventListener("click", function() {
+            document.body.scrollTop = 0; // Safari
+            document.documentElement.scrollTop = 0; // Chrome, Firefox, IE, Opera
+        });
+
+        // 모바일 드롭다운 메뉴
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('show');
+        });
+
+        // 메뉴 항목 클릭 시 드롭다운 닫기
+        const menuItems = document.querySelectorAll('#nav-menu a');
+        menuItems.forEach(item => {
+            item.addEventListener('click', function() {
+                navMenu.classList.remove('show');
+            });
+        });
+
+        // 화면 크기 변경 시 메뉴 처리
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                navMenu.classList.remove('show');
+            }
+        });
+    </script>
 </body>
 </html>
